@@ -1,9 +1,11 @@
-import React from 'react'
-import Adminroutes from './routes/Adminroutes'
+
+import { ToastContainer } from 'react-toastify'
+import Adminroutes from './routes/MainAdminRoutes/Adminroutes'
 
 export default function App() {
   return (
     <div>
+        <ToastContainer></ToastContainer>
         <Adminroutes></Adminroutes>
     </div>
   )
