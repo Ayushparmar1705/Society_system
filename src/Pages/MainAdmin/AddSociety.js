@@ -11,7 +11,7 @@ export default function AddSociety({ handleOnChange, handleOnClick }) {
     return (
         <div className="p-[10px] rounded-5 m-[auto] shadow h-[700px] w-[600px] items-center mt-4">
             <div className="bg-blue-600 text-white">
-                <p className=" text-center m-[auto]  p-[10px]">Add new block</p>
+                <p className=" text-center m-[auto]  p-[10px]">Add new Society</p>
                 <p className="text-center m-[auto] p-[10px]">Register the new society with fill the below details</p>
             </div>
 

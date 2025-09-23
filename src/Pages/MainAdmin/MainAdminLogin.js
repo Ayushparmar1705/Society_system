@@ -9,7 +9,7 @@ export default function MainAdminLogin() {
     if(username === "admin" && password === "admin@1234")
     {
       localStorage.setItem("token","Admin");
-      navigate("/mainadmin/home");
+      navigate("/mainadmin/add-society");
     }
     else if(username === "" && password === "")
     {
@@ -32,7 +32,7 @@ export default function MainAdminLogin() {
 
 
 
-          <p className="text-white text-[20px] font-bold">Super Admin Login</p>
+          <p className="text-white text-[30px] font-bold">Super Admin Login</p>
           <p className="text-white text-[15px] font-bold">Login with your username and password</p>
 
 
