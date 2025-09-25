@@ -7,6 +7,7 @@ import Layout from '../../Component/Sidebarcomponent/Layout';
 import MainAdminLogin from "../../Pages/MainAdmin/MainAdminLogin";
 import Managesocietyhook from "../../Hooks/MainAdminHooks/Managesocietyhook";
 import Addblockhook from "../../Hooks/MainAdminHooks/Addblockhook";
+import Manageblockhook from "../../Hooks/MainAdminHooks/Manageblockhook";
 
 
 
@@ -21,6 +22,7 @@ export default function Adminroutes() {
         <Route path='/mainadmin/add-society' element={<Layout><Addsocietyhook></Addsocietyhook></Layout>}></Route>
         <Route path="/mainadmin/manage-society" element={<Layout><Managesocietyhook></Managesocietyhook></Layout>}></Route>
         <Route path="/mainadmin/add-block" element={<Layout><Addblockhook></Addblockhook></Layout>}></Route>
+        <Route path="/mainadmin/manage-blocks" element={<Layout><Manageblockhook></Manageblockhook></Layout>}></Route>
 
       </Routes>
 

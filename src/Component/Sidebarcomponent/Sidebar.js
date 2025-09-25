@@ -7,7 +7,7 @@ export default function Sidebar() {
 
   const elements = [
     { 
-      label: "Flats", 
+      label: "Society", 
       icon: <FaBuilding />, 
       dropdown: [
         { name: "Add Society", path: "/mainadmin/add-society" },
@@ -26,7 +26,7 @@ export default function Sidebar() {
 
   return (
     <article>
-      <header className="bg-white shadow h-screen w-[300px] rounded-[5px]">
+      <header className="bg-blue-500 text-white shadow h-screen w-[300px] rounded-[5px]">
         <div className="p-[5px] text-center">
           <p>Admin</p>
         </div>
@@ -35,7 +35,7 @@ export default function Sidebar() {
             <div key={index} className="p-[10px] cursor-pointer">
               {/* Parent item */}
               <div 
-                className="p-[10px] rounded flex items-center hover:bg-gray-100"
+                className="p-[10px] rounded flex items-center hover:bg-gray-100 hover:text-black"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 <p>{e.icon}</p>
@@ -54,7 +54,7 @@ export default function Sidebar() {
                 {e.dropdown.map((item, idx) => (
                   <Link 
                     key={idx}
-                    className="hover:bg-gray-100 p-[10px] rounded" 
+                    className="hover:bg-gray-100 hover:text-black p-[10px] rounded" 
                     to={item.path}
                   >
                     {item.name}

@@ -26,6 +26,16 @@ const ManageBlock = {
         catch(error){
             console.log(error);
         }
+    },
+    getBlock : async()=>{
+        try{
+            const result = await fetch(ApiEndpoints.get_block);
+            const data = await result.json();
+            return data.message;
+        }
+        catch(error){
+            console.log(error);
+        }
     }
 }
 export default ManageBlock;

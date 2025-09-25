@@ -39,6 +39,7 @@ export default function Addblockhook() {
 
                 if (result.code === 200) {
                     toast.success(result.message);
+                    
                 } else {
                     toast.error(result);
                 }

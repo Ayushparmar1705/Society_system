@@ -17,9 +17,9 @@ const ManageSociety = {
         }
     },
 
-    societyDetails: async () => {
+    societyDetails: async (page , limit) => {
         try {
-            const result = await fetch(ApiEndpoints.get_society);
+            const result = await fetch(ApiEndpoints.get_society(page , limit));
             const dataResult = await result.json();
             return dataResult;
         }
@@ -33,7 +33,6 @@ const ManageSociety = {
 
             const result = await fetch(ApiEndpoints.delete_society(id))
             const dataresult = await result.json();
-
             return dataresult;
         }
         catch (error) {
@@ -62,8 +61,16 @@ const ManageSociety = {
         catch(error){
             console.log(error);
         }
+    },
+    ActivateSociety : async(id)=>{
+        try{
+            const result = await fetch(ApiEndpoints.Activate_society(id));
+            const dataResult = await result.json();
+            return dataResult;
+        }catch(error){
+            console.log(error);
+        }
     }
-
 }
 
 export default ManageSociety;
