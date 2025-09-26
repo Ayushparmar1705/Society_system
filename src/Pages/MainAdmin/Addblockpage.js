@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { toast } from "react-toastify";
 import { Card, CardHeader, CardContent } from '../../Component/UI/Card';
 import { PageContainer } from '../../Component/UI/Container';
+import { CustomDropdown } from '../../Component/UI/CustomDropdown';
 
 export default function Addblockpage({ handleOnChange, handleOnClick , societyName}) {
     useEffect(() => {
@@ -20,22 +21,17 @@ export default function Addblockpage({ handleOnChange, handleOnClick , societyNa
                     </CardHeader>
                     <CardContent>
                         <div className="space-y-6">
-                            <div className="relative">
-                                <label className="block text-sm font-medium text-gray-700 mb-2">Select Society</label>
-                                <select 
-                                    name="society_id" 
-                                    onChange={handleOnChange}
-                                    defaultValue=""
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all bg-white"
-                                >
-                                    <option value="" disabled>Select Society name</option>
-                                    {societyName.map((data, index) => (
-                                        <option key={index} value={data.sid}>
-                                            {data.society_name}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
+                            <CustomDropdown
+                                label="Select Society"
+                                placeholder="Choose a society"
+                                name="society_id"
+                                onChange={handleOnChange}
+                                options={societyName.map(society => ({
+                                    value: society.sid,
+                                    label: society.society_name
+                                }))}
+                                className="w-full"
+                            />
                             
                             <div className="relative">
                                 <input 
