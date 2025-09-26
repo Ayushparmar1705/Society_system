@@ -1,13 +1,10 @@
 
-import Sidebar from './Sidebar'
+import EnhancedLayout from './EnhancedLayout'
 
 export default function Layout({children}) {
   return (
-    <div className='flex'>
-        <Sidebar></Sidebar>
-        <main className='flex-1 justify-center items-center'>
-            {children}
-        </main> 
-    </div>
+    <EnhancedLayout>
+      {children}
+    </EnhancedLayout>
   )
 }

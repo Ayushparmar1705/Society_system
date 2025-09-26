@@ -1,48 +1,47 @@
-import { Key, Mail, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import React from 'react'
+import { Card, CardContent } from '../../Component/UI/Card';
+import { PageContainer, PageHeader } from '../../Component/UI/Container';
 
 export default function ManageBlockPage({ isLoading, blockList }) {
 
-
     return (
-        <div className='mt-[10px] md:w-full md:m-[auto]'>
+        <PageContainer>
             {isLoading ? (
-                <div className='w-full'>
-                    <img className='h-100 w-100 m-[auto]' src='/Assets/loading.gif'></img>
+                <div className="flex justify-center py-20">
+                    <img src='/Assets/loading.gif' alt='loading' className="h-20 w-20" />
                 </div>
             ) : (
-                <div>
-                  
-                    <p className='text-40 text-center'>Manage Blocks</p>
-                     <div className='p-10 w-full flex   justify-center'>
-
-                  
-                   </div>
-                    <div className='flex flex-wrap  mt-[10px] justify-center gap-[10px]'>
+                <>
+                    <PageHeader 
+                        title="Manage Blocks" 
+                        subtitle="View and manage all registered blocks"
+                    />
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {blockList.map((data, index) => (
-                            <div key={index}>
-                                <div className='border-2  border-gray-50 p-[10px] rounded shadow w-[300px] h-[250px] mt-[2px]'>
-                                    <div className='bg-blue-600 text-white p-[10px] font-bold rounded'>
-                                        <p>{data.block_name}</p>
-                                        <p>{data.society_name}</p>
-                                    </div>
-                                    <div className='flex flex-col p-[10px]'>
-                                        <div className='flex p-[10px] items-center'>
-                                            <Mail className='text-blue-500 h-[15px] w-[15px]'></Mail>
-                                            <p className='ml-[5px]'>{data.email}</p>
-                                        </div>
-                                        <div className='flex p-[10px] items-center'>
-                                            <Phone className='text-blue-500 h-[15px] w-[15px]'></Phone>
-                                            <p className='ml-[5px]'>{data.phone}</p>
-                                        </div>
-                                    </div>
+                            <Card key={index} hover={true}>
+                                <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4">
+                                    <h3 className="text-lg font-bold">{data.block_name}</h3>
+                                    <p className="text-blue-100 text-sm">{data.society_name}</p>
                                 </div>
-
-                            </div>
+                                <CardContent>
+                                    <div className="space-y-3">
+                                        <div className="flex items-center text-sm text-gray-700">
+                                            <Mail size={16} className="text-blue-500 mr-2 flex-shrink-0" />
+                                            <span className="break-all">{data.email}</span>
+                                        </div>
+                                        <div className="flex items-center text-sm text-gray-700">
+                                            <Phone size={16} className="text-blue-500 mr-2 flex-shrink-0" />
+                                            <span>{data.phone}</span>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
                         ))}
                     </div>
-                </div>
+                </>
             )}
-        </div>
+        </PageContainer>
     )
 }

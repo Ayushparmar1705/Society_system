@@ -1,98 +1,136 @@
-import { Building2, Key, Layout, Mail, Map, MapPin, Phone } from 'lucide-react';
+import { Building2, Layout, Mail, Map, MapPin, Phone } from 'lucide-react';
+import { FaTrash, FaEdit } from 'react-icons/fa';
+import { Card, CardContent, CardActions } from '../../Component/UI/Card';
+import { PageContainer, PageHeader } from '../../Component/UI/Container';
 
 export default function ManageBlockPage({ page , setPage , totalPage , loading, societyList, handleSearch, handleDelete , ActivateSociety}) {
 
-
   return (
-    <div className='mt-[10px]'>
+    <PageContainer>
       {loading ? (
-        <div className='w-[100%]'>
-          <img className='h-[100px] w-[100px] m-[auto]' src='/Assets/loading.gif'></img>
+        <div className="flex justify-center py-20">
+          <img src='/Assets/loading.gif' alt='loading' className="h-20 w-20" />
         </div>
       ) : (
-        <div>
-          <p className='text-[20px] text-center'>Manage Society</p>
-          <input type='search' placeholder='Search society by name' onChange={handleSearch} className='rounded-[10px] border-2 border-gray-50 focus:outline-none focus:border-2 focus:border-blue-300 focus:transition-all focus:duration-300 focus:ease-in-out p-[10px] m-[auto] w-[400px] m-[auto] block'></input>
-          <div className='flex flex-wrap w-[100%] mt-[10px] gap-[10px]'>
+        <>
+          <PageHeader 
+            title="Manage Society" 
+            subtitle="View and manage all registered societies"
+          />
+          
+          <div className="flex justify-center mb-8">
+            <input
+              type="search"
+              placeholder="Search society by name"
+              onChange={handleSearch}
+              className="w-full max-w-2xl px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {societyList.map((data, index) => (
-              <div key={index}>
-                <div className='p-[10px] border-2 ml-5 border-gray-50 p-2 rounded shadow w-[350px] h-[400px] mt-[2px]'>
-                  <div className={`text-white p-[10px] font-bold rounded ${data.is_active === 1 ? 'bg-green-300 text-black':'bg-gray-400'}`}>
-
-                    <p>{data.society_name}</p>
-                    {data.is_active === 1 ? (
-                      <p>Active</p>
-                    ) : (
-                      <p>Not Active</p>
-                    )}
+              <Card key={index} hover={true} className="flex flex-col h-full">
+                <div className={`p-4 ${data.is_active === 1 
+                  ? 'bg-gradient-to-r from-green-500 to-green-400' 
+                  : 'bg-gradient-to-r from-gray-500 to-gray-400'
+                } text-white`}>
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-lg font-bold truncate flex-1 mr-2">{data.society_name}</h3>
+                    <span className={`text-xs px-2 py-1 rounded-full font-semibold ${
+                      data.is_active === 1 
+                        ? 'bg-white bg-opacity-20 text-white' 
+                        : 'bg-white bg-opacity-20 text-white'
+                    }`}>
+                      {data.is_active === 1 ? 'Active' : 'Inactive'}
+                    </span>
                   </div>
-                  <div className='flex w-full flex-col p-5'>
-                    <div className='flex  p-[5px] items-center'>
-                      <Mail className='text-blue-500 h-5 w-5'></Mail>
-                      <p className='ml-[5px]'>{data.email}</p>
-                    </div>
-                    <div className='flex p-[5px] items-center'>
-                      <Phone className='text-blue-500 h-5 w-5'></Phone>
-                      <p className='ml-[5px]'>{data.phone}</p>
-                    </div>
-                    <div className='flex p-[5px] items-center'>
-                      <MapPin className='text-blue-500 h-5 w-5'></MapPin>
-                      <p className='ml-[5px]'>{data.address}</p>
-                    </div>
-                    <div className='flex p-[5px] items-center'>
-                      <Map className='text-blue-500 h-5 w-5'></Map>
-                      <p className='ml-[5px]'>{data.state}</p>
-                    </div>
-                    <div className='flex'>
-                      <div className='flex p-[5px] items-center'>
-                        <Layout></Layout>
-                        <p className='ml-[5px]'>Blocks {data.total_blocks}</p>
-                      </div>
-                      <div className='flex p-[5px] items-center'>
-                        <Building2 className='text-blue-500 h-5 w-5'></Building2>
-                        <p className='ml-[5px]'>Flats {data.total_flats}</p>
-                      </div>
-                    </div>
-                    {data.is_active === 1 ? (
-                      <div className='flex justify-between border-t-2 border-gray-50 w-full'>
-                        <div className=''>
-                          <img onClick={() => {
-                            handleDelete(data.sid);
-                          }} src='/Assets/delete.png' className='cursor-pointer text-blue-500 h-5 w-5'></img>
-                        </div>
-                        <div>
-                          <img onClick={() => {
-
-                          }} src='/Assets/edit.png' className='cursor-pointer text-blue-500 h-5 w-5'></img>
-                        </div>
-                        
-                      </div>
-                    ):(
-                      <button onClick={()=>{
-                        ActivateSociety(data.sid);
-                      }} className='bg-blue-500 hover:bg-blue-700 p-3 w-90 m-[auto] rounded text-white'>Activate</button>
-                    )}
-                  </div>
-
                 </div>
 
-              </div>
+                <CardContent className="flex-1">
+                  <div className="space-y-3">
+                    <div className="flex items-center text-sm text-gray-700">
+                      <Mail size={16} className="text-blue-500 mr-2 flex-shrink-0" />
+                      <span className="break-all">{data.email}</span>
+                    </div>
+                    
+                    <div className="flex items-center text-sm text-gray-700">
+                      <Phone size={16} className="text-blue-500 mr-2 flex-shrink-0" />
+                      <span>{data.phone}</span>
+                    </div>
+                    
+                    <div className="flex items-start text-sm text-gray-700">
+                      <MapPin size={16} className="text-blue-500 mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="line-clamp-2">{data.address}</span>
+                    </div>
+                    
+                    <div className="flex items-center text-sm text-gray-700">
+                      <Map size={16} className="text-blue-500 mr-2 flex-shrink-0" />
+                      <span>{data.state}</span>
+                    </div>
+                    
+                    <div className="flex justify-between pt-3 border-t border-gray-200 text-sm text-gray-800">
+                      <div className="flex items-center">
+                        <Layout size={16} className="text-blue-500 mr-1" />
+                        <span>Blocks {data.total_blocks}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Building2 size={16} className="text-blue-500 mr-1" />
+                        <span>Flats {data.total_flats}</span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+
+                <CardActions className="flex justify-between">
+                  {data.is_active === 1 ? (
+                    <>
+                      <button 
+                        onClick={() => handleDelete(data.sid)}
+                        className="flex items-center text-red-600 hover:text-red-700 hover:bg-red-50 px-3 py-2 rounded-lg transition-all"
+                      >
+                        <FaTrash size={14} className="mr-1" />
+                        Delete
+                      </button>
+                      <button className="flex items-center text-blue-600 hover:text-blue-700 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all">
+                        <FaEdit size={14} className="mr-1" />
+                        Edit
+                      </button>
+                    </>
+                  ) : (
+                    <button
+                      onClick={() => ActivateSociety(data.sid)}
+                      className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-all transform hover:scale-105"
+                    >
+                      Activate
+                    </button>
+                  )}
+                </CardActions>
+              </Card>
             ))}
-
-           
           </div>
-           <div className='flex items-center justify-center mt-[10px]'>
-              <button className='p-2 text-white bg-blue-500 text-center block rounded w-10' onClick={()=>{
-                setPage(page - 1);
-              }} disabled={page<=1}>&laquo;</button>
 
-              <span className='ml-2'>{page} / {totalPage}</span>
-              <button className='p-2 text-white ml-2 bg-blue-500 text-center block rounded w-10' onClick={()=>{
-                setPage(page + 1);
-              }} disabled={page>=totalPage}>&raquo;</button>
-            </div>
-        </div>
+          {/* Pagination */}
+          <div className="flex justify-center items-center mt-8 space-x-4">
+            <button
+              onClick={() => setPage(page - 1)}
+              disabled={page <= 1}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            >
+              Previous
+            </button>
+            <span className="text-gray-700 font-medium">
+              Page {page} of {totalPage}
+            </span>
+            <button
+              onClick={() => setPage(page + 1)}
+              disabled={page >= totalPage}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            >
+              Next
+            </button>
+          </div>
+        </>
       )}
-    </div>
+    </PageContainer>
   )
 }
