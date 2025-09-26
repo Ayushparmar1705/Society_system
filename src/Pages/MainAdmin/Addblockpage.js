@@ -9,7 +9,7 @@ export default function Addblockpage({ handleOnChange, handleOnClick , societyNa
         }
     })
     return (
-        <div className="p-[10px] rounded-5 m-[auto] shadow h-[400px] w-[600px] items-center mt-4">
+        <div className="p-[10px]  sd:bg-black rounded-5 m-[auto] shadow h-[400px] w-[600px] items-center mt-4 max-md:w-full max-md:mt-20">
             <div className="bg-blue-600 text-white">
                 <p className=" text-center m-[auto]  p-[10px]">Add new block</p>
                 <p className="text-center m-[auto] p-[10px]">Register the new block with fill the below details</p>
@@ -17,7 +17,7 @@ export default function Addblockpage({ handleOnChange, handleOnClick , societyNa
 
 
             <div className="flex">
-                <div className="p-[10px] relative w-[100%]">
+                <div className="p-[10px] sd:p-[0px]  relative w-[100%]">
                     <select className="p-[10px] rounded-[5px] border-2 border-gray-300 focus:border-2 focus:border-blue-400 focus:outline-none peer w-[100%]" name="society_id" onChange={handleOnChange}>
                         <option value="" selected disabled>Select Society name</option>
                         {

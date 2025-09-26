@@ -17,7 +17,7 @@ export default function ManageBlockPage({ page , setPage , totalPage , loading, 
             {societyList.map((data, index) => (
               <div key={index}>
                 <div className='p-[10px] border-2 ml-5 border-gray-50 p-2 rounded shadow w-[350px] h-[400px] mt-[2px]'>
-                  <div className='bg-blue-600 text-white p-[10px] font-bold rounded'>
+                  <div className={`text-white p-[10px] font-bold rounded ${data.is_active === 1 ? 'bg-green-300 text-black':'bg-gray-400'}`}>
 
                     <p>{data.society_name}</p>
                     {data.is_active === 1 ? (

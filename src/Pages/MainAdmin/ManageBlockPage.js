@@ -5,16 +5,16 @@ export default function ManageBlockPage({ isLoading, blockList }) {
 
 
     return (
-        <div className='mt-[10px]'>
+        <div className='mt-[10px] md:w-full md:m-[auto]'>
             {isLoading ? (
-                <div className='w-[100%]'>
-                    <img className='h-[100px] w-[100px] m-[auto]' src='/Assets/loading.gif'></img>
+                <div className='w-full'>
+                    <img className='h-100 w-100 m-[auto]' src='/Assets/loading.gif'></img>
                 </div>
             ) : (
                 <div>
                   
-                    <p className='text-[20px] text-center'>Manage Blocks</p>
-                     <div className='p-[10px] w-[100%] flex   justify-center'>
+                    <p className='text-40 text-center'>Manage Blocks</p>
+                     <div className='p-10 w-full flex   justify-center'>
 
                   
                    </div>

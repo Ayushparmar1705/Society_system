@@ -7,7 +7,7 @@ export default function Layout({children}) {
         <Sidebar></Sidebar>
         <main className='flex-1 justify-center items-center'>
             {children}
-        </main>
+        </main> 
     </div>
   )
 }
