@@ -10,6 +10,10 @@ const ApiEndpoints = {
     "get_block" : `${BASE_URL}/mainadmin/getblock`,
     "pagination" :  `{BASE_URL}/mainadmin/pagination`,
     "Activate_society" : (id)=> `${BASE_URL}/mainadmin/activatesociety/${id}`,
+    "add_flats" : `${BASE_URL}/mainadmin/addflats`,
+    "getblockbyflatsname" : (id) => `${BASE_URL}/mainadmin/getblockbyflatname/${id}`,
+    "getFlats" : (page , limit) => `${BASE_URL}/mainadmin/getFlats/${page}/${limit}`,
+    "update_society" : (id)=> `${BASE_URL}/mainadmin/updatesociety/${id}`,
 
 }
 export default ApiEndpoints;

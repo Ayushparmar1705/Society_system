@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { toast } from 'react-toastify'
-import ManageSociety from '../../Api/MainAdmin/ManageSociety'
-import AddSociety from '../../Pages/MainAdmin/AddSociety'
+import ManageSociety from '../../../Api/MainAdmin/ManageSociety'
+import AddSocietypage from '../../../Pages/MainAdmin/SocietyManagement/AddSocietypage'
+
 
 export default function Addsocietyhook() {
     const [formData , setFormData] = useState({
@@ -66,5 +67,5 @@ export default function Addsocietyhook() {
             }
         }
     }
-    return <AddSociety handleOnChange={handleOnChnage} handleOnClick={handleOnSubmit}></AddSociety>
+    return <AddSocietypage handleOnChange={handleOnChnage} handleOnClick={handleOnSubmit}></AddSocietypage>
 }

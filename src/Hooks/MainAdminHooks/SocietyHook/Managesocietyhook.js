@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import ManageSociety from '../../Api/MainAdmin/ManageSociety'
-import ManageSocietyPage from '../../Pages/MainAdmin/ManageSocietyPage';
+import ManageSociety from '../../../Api/MainAdmin/ManageSociety'
+
 import { toast } from 'react-toastify';
+import ManageSocietyPage from '../../../Pages/MainAdmin/SocietyManagement/ManageSocietyPage';
 
 export default function Managesocietyhook() {
     const [societyList, setSocietyList] = useState([]);

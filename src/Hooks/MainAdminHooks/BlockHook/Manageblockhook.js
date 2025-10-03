@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import ManageBlockPage from '../../Pages/MainAdmin/ManageBlockPage'
-import ManageBlock from '../../Api/MainAdmin/ManageBlock';
+import ManageBlock from '../../../Api/MainAdmin/ManageBlock';
+import ManageBlockPage from '../../../Pages/MainAdmin/BlockManagement/ManageBlockPage';
 
 export default function Manageblockhook() {
     const [blockList, setBlockList] = useState([]);

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import ManageBlock from '../../Api/MainAdmin/ManageBlock';
-import Addblockpage from '../../Pages/MainAdmin/Addblockpage';
+import ManageBlock from '../../../Api/MainAdmin/ManageBlock';
 import { toast } from 'react-toastify';
+import Addblockpage from '../../../Pages/MainAdmin/BlockManagement/Addblockpage';
 
 export default function Addblockhook() {
     const [societyName, setSocietyName] = useState([]);

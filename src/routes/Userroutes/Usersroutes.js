@@ -1,0 +1,14 @@
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+
+import Home from '../../Pages/Users/Home'
+
+
+export default function Usersroutes() {
+  return (
+    <Routes>
+
+      <Route path='/' element={<Home></Home>}></Route>
+    </Routes>
+    )
+}

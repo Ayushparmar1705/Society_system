@@ -56,6 +56,7 @@ const ManageSociety = {
         try{
             const result = await fetch(ApiEndpoints.search_by_id(id));
             const dataResult = await result.json();
+            console.log(dataResult);
             return dataResult;
         }
         catch(error){
@@ -68,6 +69,22 @@ const ManageSociety = {
             const dataResult = await result.json();
             return dataResult;
         }catch(error){
+            console.log(error);
+        }
+    },
+    updateSociety : async(id , formData)=>{
+        try{
+            const result = await fetch(ApiEndpoints.update_society(id),{
+                method : "POST",
+                headers : {
+                    "Content-Type" : "application/json",
+                },
+                body : JSON.stringify(formData)
+            });
+            const data = await result.json();
+            return data;
+        }
+        catch(error){
             console.log(error);
         }
     }
