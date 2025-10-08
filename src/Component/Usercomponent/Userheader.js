@@ -23,7 +23,7 @@ export default function Userheader() {
             <div className='hidden md:flex justify-end w-[100%]'>
                 {
                     links.map((data, index) => (
-                        <Link className={`text-black p-2 font-semibold hover:text-blue-500 hover:transition-all hover:duration-100 ${location.pathname === '/' ? 'text-blue-600' : 'text-black'}`}>
+                        <Link to={data.path} className={`text-black p-2 font-semibold hover:text-blue-500 hover:transition-all hover:duration-100 ${location.pathname === data.path ? 'text-blue-600' : 'text-black'}`}>
                             {data.name}
                         </Link>
                     ))
