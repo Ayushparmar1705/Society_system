@@ -33,6 +33,10 @@ const societyModel = {
     countTotal: (callback) => {
         const countSql = "SELECT COUNT(*) AS total FROM Addsociety";
         conn.query(countSql,callback);
+    },
+    updateSociety : (id , data , callback)=>{
+        const sql = "UPDATE Addsociety SET society_name = ? , state = ? , email = ? , phone = ? , address = ? , total_flats = ? , total_blocks = ? WHERE sid = ?";
+        conn.query(sql,[data.society_name, data.state, data.email, data.phone, data.address, data.total_flats, data.total_blocks , id],callback);
     }
 
 }
