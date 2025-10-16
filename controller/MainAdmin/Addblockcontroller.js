@@ -1,10 +1,9 @@
 const { blockModel } = require("../../model/MainAdmin/Addblockmodel");
 const blockController = {
     // create the object to add new block in db
-    Addblock: (req, res) => {
+    Addblock: async(req, res) => {
         // request by the client
         const data = req.body;
-        console.log(data);
         // check unique block name
         // blockModel.uniqueName(data.name, (err, result) => {
         //     if (err) {
@@ -42,11 +41,11 @@ const blockController = {
                 return res.status(500).send({ code: 500, message: err });
             }
             else {
-                    if (result.affectedRows > 0) {
-                        return res.status(200).send({ code: 200, message: "Block added successfully" });
-                    }
+                if (result.affectedRows > 0) {
+                    return res.status(200).send({ code: 200, message: "Block added successfully" });
                 }
-            })
+            }
+        })
     
 
     },
