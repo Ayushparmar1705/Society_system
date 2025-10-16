@@ -12,6 +12,17 @@ const Managesignup = {
         const result = await data.json();
         return result;
     },
+    userSignup : async(FormData)=>{
+        const data = await fetch(ApiEndpoints.userSignup,{
+            method : "POST",
+            headers : {
+                "Content-Type" : "application/json",
+            },
+            body : JSON.stringify(FormData)
+        })
+        const result = await data.json();
+        return result;
+    }
   
 
 }
