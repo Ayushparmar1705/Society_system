@@ -7,7 +7,8 @@ const blockroutes = require("./routes/MainAdmin/Addblockroutes");
 const flatsroutes = require("./routes/MainAdmin/Addflatsroutes");
 const usersignuproutes = require("./routes/User/Signuproutes");
 const userloginroutes = require("./routes/User/Loginroutes")
-const memberManagement = require("./routes/RolebasedAuth/MemberRoutes")
+const memberManagement = require("./routes/RolebasedAuth/Chairman/MemberRoutes")
+const dashboardRoutes = require("./routes/RolebasedAuth/Chairman/DashboardRoutes");
 app.use(express.json());
 app.use("/mainadmin",societyroutes);
 app.use("/mainadmin",blockroutes);
@@ -15,6 +16,7 @@ app.use("/mainadmin",flatsroutes);
 app.use("/users",usersignuproutes);
 app.use("/users",userloginroutes);
 app.use("/auth",memberManagement);
+app.use("/auth",dashboardRoutes);
 app.listen(5000 , ()=>{
     console.log("server is running on port 5000");
 })
