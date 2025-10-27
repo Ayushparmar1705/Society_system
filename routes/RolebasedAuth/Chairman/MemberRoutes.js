@@ -1,6 +1,10 @@
 const express = require("express");
 const { memberController } = require("../../../controller/RolebasedAuth/Chairman/MemberController");
+const { Managestaffcontroller } = require("../../../controller/RolebasedAuth/Chairman/ManagestaffController");
 const router = express.Router();
 router.get("/member/:society_name",memberController.residenceController)
 router.get("/approve",memberController.ApproveController)
+router.post("/add-staff/:id",Managestaffcontroller.Addstaff);
+router.get("/manage-staff/:id",Managestaffcontroller.Managestaff);
+router.delete("/inactive-staff/:id",Managestaffcontroller.deleteStaff)
 module.exports = router
