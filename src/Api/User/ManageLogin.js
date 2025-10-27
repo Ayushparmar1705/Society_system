@@ -1,4 +1,4 @@
-const { default: ApiEndpoints } = require("../../Apiroutes/UserRoutes/UserEndpoints")
+const { default: ApiEndpoints } = require("../../Apiroutes/UserRoutes/UserEndpoints");
 
 const ManageLogin = {
     login: async (email) => {
@@ -24,6 +24,7 @@ const ManageLogin = {
             body : JSON.stringify({email,otp})
         })
         const result = await data.json();
+        console.log("verify otp = ",result);
         return result
     }
 

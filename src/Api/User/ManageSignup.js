@@ -7,11 +7,11 @@ const Managesignup = {
 
         return result;
     },
-    getFlatsCode : async(society_id)=>{
-        const data = await fetch(ApiEndpoints.getblockbyflatsname(society_id));
-        const result = await data.json();
-        return result;
-    },
+        getFlatsCode : async(society_id)=>{
+            const data = await fetch(ApiEndpoints.getblockbyflatsname(society_id));
+            const result = await data.json();
+            return result;
+        },
     userSignup : async(FormData)=>{
         const data = await fetch(ApiEndpoints.userSignup,{
             method : "POST",

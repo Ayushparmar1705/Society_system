@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Userheader from '../../Component/Usercomponent/Userheader'
 
-export default function Login({handleLogin , handleOnChange}) {
+export default function Login({ handleLogin, handleOnChange }) {
     return (
         <>
             <Userheader></Userheader>

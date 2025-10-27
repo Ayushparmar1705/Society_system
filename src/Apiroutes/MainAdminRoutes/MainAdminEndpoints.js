@@ -2,7 +2,7 @@
 const BASE_URL = "http://localhost:5000";
 // for network
 // const BASE_URL = "http://192.168.1.12:5000";
-const ApiEndpoints = {
+const MainAdminApiEndPoints = {
     "add_society" : `${BASE_URL}/mainadmin/addsociety`,
     "get_society" : (page , limit) => `${BASE_URL}/mainadmin/getsociety/${page}/${limit}`,
     "delete_society" : (id) => `${BASE_URL}/mainadmin/deletesociety/${id}`,
@@ -19,4 +19,4 @@ const ApiEndpoints = {
     "update_society" : (id)=> `${BASE_URL}/mainadmin/updatesociety/${id}`,
 
 }
-export default ApiEndpoints;
+export default MainAdminApiEndPoints;

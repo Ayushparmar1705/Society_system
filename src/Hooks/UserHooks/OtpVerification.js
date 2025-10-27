@@ -8,16 +8,19 @@ export default function OtpVerification() {
     const location = useLocation();
     const navigate = useNavigate();
     const email = location.state?.email
+    const society_name = location.state?.society_name;
     const [otp, setOtp] = useState("");
     const handleVerifyotp = async()=>{
         const result = await ManageLogin.verifyOTP(email,otp)
-        console.log(result);
+        
         if(result.code === 200)
         {
 
             toast.success(result.message);
             if(result.role === 'chairman')
             {
+                localStorage.setItem("token",result._token)
+                localStorage.setItem("society_name",society_name);
                 navigate("/dashboard")
             }
             else

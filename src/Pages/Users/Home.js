@@ -2,8 +2,10 @@ import React from 'react'
 import Userheader from '../../Component/Usercomponent/Userheader'
 import "../../globlecss/styles.css"
 import Userfooter from '../../Component/Usercomponent/Userfooter';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
+  
   const features = [
     {
       icon: "🏠",

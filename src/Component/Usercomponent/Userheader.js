@@ -1,15 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 export default function UserHeader() {
+  const [myToken , setMyToken] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  useEffect(()=>{
+    const token = localStorage.getItem("token");
+    console.log("token" , token)
+    if(token)
+    {
+      setMyToken(token);
+      return;
+    }
+  },[])
+ 
 
   const links = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
     { name: "Contact Us", path: "/contact" },
-    { name: "Login", path: "/login" },
+    { name: myToken?'Dashboard':'Login', path: myToken?'/dashboard':'/login' },
   ];
 
   return (
