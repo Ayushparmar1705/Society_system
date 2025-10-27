@@ -34,7 +34,20 @@ const Managestaffcontroller = {
                 return res.status(500).send({ code: 500, message: err });
             }
             else {
-                return res.status(200).send({ code: 200, message: "Staff inactive succesfully"});
+                return res.status(200).send({ code: 200, message: "Staff inactive succesfully" });
+            }
+        })
+
+    },
+    ActiveStaff: (req, res) => {
+        const id = req.params.id;
+        Managestaffmodel.ActiveStaff(id, (err, _) => {
+            if (err) {
+                console.log(err)
+                return res.status(500).send({ code: 500, message: err });
+            }
+            else {
+                return res.status(200).send({ code: 200, message: "Staff Active succesfully" });
             }
         })
 

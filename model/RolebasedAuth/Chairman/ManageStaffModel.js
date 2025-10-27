@@ -11,6 +11,10 @@ const Managestaffmodel = {
     DeleteStaff : (id , callback)=>{
         const sql = "UPDATE staff SET is_active = 0 WHERE sid = ?"
         conn.query(sql,[id],callback);
+    },
+    ActiveStaff : (id , callback)=>{
+        const sql = "UPDATE staff SET is_active = 1 WHERE sid = ?"
+        conn.query(sql , [id] , callback);
     }
 }
 module.exports = {Managestaffmodel}

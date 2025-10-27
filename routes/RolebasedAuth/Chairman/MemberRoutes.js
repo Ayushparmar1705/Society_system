@@ -7,4 +7,5 @@ router.get("/approve",memberController.ApproveController)
 router.post("/add-staff/:id",Managestaffcontroller.Addstaff);
 router.get("/manage-staff/:id",Managestaffcontroller.Managestaff);
 router.delete("/inactive-staff/:id",Managestaffcontroller.deleteStaff)
+router.put("/active-staff/:id",Managestaffcontroller.ActiveStaff)
 module.exports = router
