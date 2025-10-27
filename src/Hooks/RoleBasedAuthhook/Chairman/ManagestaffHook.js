@@ -3,19 +3,29 @@ import Managestaff from '../../../Pages/Auth/chairman/Managestaff'
 import { StaffManagement } from '../../../Api/RolebasedAuth/Chairman/StaffManagement';
 import { jwtDecode } from 'jwt-decode';
 import { toast } from 'react-toastify';
+import 'react-confirm-alert/src/react-confirm-alert.css';
+import { confirmAlert } from 'react-confirm-alert';
+import confirmationMessage from '../../../Component/confirmationMessage';
 
 export default function ManagestaffHook() {
+    // create the result variable to store all staff data
     const [result, setResult] = useState([]);
+
+    // create loading variable for loading
     const [loading, setLoading] = useState(false);
+    // fetch the token from local storage and decoded it
     const token = localStorage.getItem("token");
     const decodedToken = jwtDecode(token).id
+
+
+    // create the function which is fetch all staff details from db
     const fetchStaff = async () => {
         try {
             setLoading(true);
             const data = await StaffManagement.Managestaff(decodedToken);
 
             setResult(data.message);
-            setLoading(false);
+
         } catch (err) {
             setLoading(false);
             console.log(err);
@@ -25,17 +35,22 @@ export default function ManagestaffHook() {
         }
         return result
     }
-    const inActivestaff = async (id) => {
-        try {
-            const data = await StaffManagement.InActivestaff(id);
-            toast.success(data.message);
 
-        } catch (err) {
-            console.log(err);
-        }
+
+    // create the function to in active the staff with confirmation message
+    const inActivestaff = async (id) => {
+        // <confirmationMessage id={id} fetchStaff={fetchStaff}></confirmationMessage>
+        confirmationMessage({ fetchStaff, fun: "InActive", staffAction: StaffManagement.InActivestaff(id) })
     }
+    const Activestaff = async (id) => {
+        confirmationMessage({ fetchStaff , fun: "Active", staffAction: StaffManagement.Activestaff(id) })
+    }
+
+
+
+    // call the fetch staff function
     useEffect(() => {
         fetchStaff();
     }, [])
-    return <Managestaff inActivestaff={inActivestaff} loading={loading} result={result}></Managestaff>
+    return <Managestaff Activestaff={Activestaff} inActivestaff={inActivestaff} loading={loading} result={result}></Managestaff>
 }

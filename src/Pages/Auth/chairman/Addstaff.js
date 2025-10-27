@@ -29,8 +29,8 @@ export default function Addstaff({ handleOnChange, handleOnClick }) {
                             <select onChange={handleOnChange} name='role' className='p-1 rounded border-2 border-gray-100 w-full'>
                                 <option selected disabled>Select role</option>
                                 <option value='security'>Security</option>
-                                <option value='vehical_cleaners'>vehical cleaners</option>
-                                <option value='garbege_collector'>garbege_collector</option>
+                                <option value='vehical cleaners'>vehical cleaners</option>
+                                <option value='Garbage collectors'>garbege_collector</option>
                             </select>
                         </div>
                         <button onClick={handleOnClick} className='p-2 bg-blue-400 hover:bg-blue-300 text-white rounded w-2/5'>Add staff</button>

@@ -23,5 +23,12 @@ export  const  StaffManagement = {
         });
         const result = await data.json();
         return result;
+    },
+    Activestaff : async(id)=>{
+        const data = await fetch(ApiEndpoint.Activestaff(id),{
+            method : "PUT",
+        })
+        const result = await data.json();
+        return result;
     }
 }
