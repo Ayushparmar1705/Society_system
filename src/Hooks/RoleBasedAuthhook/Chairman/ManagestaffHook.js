@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import { confirmAlert } from 'react-confirm-alert';
 import confirmationMessage from '../../../Component/confirmationMessage';
+import { useNavigate } from 'react-router-dom';
 
 export default function ManagestaffHook() {
     // create the result variable to store all staff data
@@ -16,6 +17,8 @@ export default function ManagestaffHook() {
     // fetch the token from local storage and decoded it
     const token = localStorage.getItem("token");
     const decodedToken = jwtDecode(token).id
+
+    const navigate = useNavigate();
 
 
     // create the function which is fetch all staff details from db
@@ -46,11 +49,17 @@ export default function ManagestaffHook() {
         confirmationMessage({ fetchStaff , fun: "Active", staffAction: StaffManagement.Activestaff(id) })
     }
 
+    const getOnestaff = async(id)=>{
+        const data = await StaffManagement.editStaff(id);
+
+        navigate("/update-staff",{state : {data : data}})
+    }
+
 
 
     // call the fetch staff function
     useEffect(() => {
         fetchStaff();
     }, [])
-    return <Managestaff Activestaff={Activestaff} inActivestaff={inActivestaff} loading={loading} result={result}></Managestaff>
+    return <Managestaff Activestaff={Activestaff} inActivestaff={inActivestaff} loading={loading} result={result} getOnestaff={getOnestaff}></Managestaff>
 }

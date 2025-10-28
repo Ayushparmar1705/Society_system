@@ -2,7 +2,7 @@ import React from 'react';
 import Loginchairmanheader from '../../../Component/Usercomponent/Loginchairmanheader';
 
 
-export default function MemberManagement({ result, loading, inActivestaff , Activestaff}) {
+export default function MemberManagement({ result, loading, inActivestaff, Activestaff , getOnestaff}) {
     return (
         <div className='flex items-start '>
 
@@ -23,12 +23,14 @@ export default function MemberManagement({ result, loading, inActivestaff , Acti
 
                                 <p className='mt-1 p-1  w-[250px]'>role : {data.role}</p>
                                 {data.is_active === 0 ? (
-                                    <button onClick={()=>{
+                                    <button onClick={() => {
                                         Activestaff(data.sid)
                                     }} className='bg-blue-500 hover:bg-blue-400 text-white p-2 w-full rounded'>Active</button>
                                 ) : (
                                     <div className='p-5 flex justify-between w-full'>
-                                        <img className='h-[20px] w-[20px]' src='../Assets/edit.png' alt='Noimage'></img>
+                                        <img onClick={() => {
+                                            getOnestaff(data.sid)
+                                        }} className='h-[20px] w-[20px]' src='../Assets/edit.png' alt='Noimage'></img>
                                         <img onClick={() => {
                                             inActivestaff(data.sid)
                                         }} className='h-[20px] w-[20px]' src='../Assets/delete.png' alt='Noimage'></img>

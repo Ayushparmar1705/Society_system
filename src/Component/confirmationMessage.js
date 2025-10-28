@@ -1,10 +1,7 @@
-import React from 'react'
-import { StaffManagement } from '../Api/RolebasedAuth/Chairman/StaffManagement';
-import { confirmAlert } from 'react-confirm-alert';
-import { toast } from 'react-toastify';
+import { confirmAlert } from "react-confirm-alert";
+import { toast } from "react-toastify";
 
 export default function confirmationMessage({ fun, fetchStaff , staffAction}) {
-
 
     return (
         confirmAlert({
@@ -18,10 +15,8 @@ export default function confirmationMessage({ fun, fetchStaff , staffAction}) {
                     onClick: async () => {
                         try {
                             const data = await staffAction;
-                  
                             toast.success(data.message);
                             fetchStaff();
-
                         } catch (err) {
                             console.log(err);
                         }
@@ -30,18 +25,9 @@ export default function confirmationMessage({ fun, fetchStaff , staffAction}) {
                 {
                     label: "No",
                     className: 'bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400',
-
-                    onClick: async () => {
-                        return null;
-                    }
+                
                 }
-
             ]
         })
-
     )
-
-
-
-
 }

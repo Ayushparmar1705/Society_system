@@ -7,9 +7,11 @@ import LoginHook from '../../Hooks/UserHooks/LoginHook'
 import OtpVerification from '../../Hooks/UserHooks/OtpVerification'
 import DashboardHook from '../../Hooks/RoleBasedAuthhook/Chairman/DashboardHook'
 import MemberHook from '../../Hooks/RoleBasedAuthhook/Chairman/MemberHook'
-import Addstaff from '../../Pages/Auth/chairman/Addstaff'
+
 import AddstaffHook from '../../Hooks/RoleBasedAuthhook/Chairman/AddstaffHook'
 import ManagestaffHook from '../../Hooks/RoleBasedAuthhook/Chairman/ManagestaffHook'
+
+import UpdatestaffHook from '../../Hooks/RoleBasedAuthhook/Chairman/UpdatestaffHook'
 
 
 export default function Usersroutes() {
@@ -24,6 +26,7 @@ export default function Usersroutes() {
       <Route path='/member-management' element={<MemberHook></MemberHook>}></Route>
       <Route path='/add-staff' element={<AddstaffHook></AddstaffHook>}></Route>
       <Route path='/manage-staff' element={<ManagestaffHook></ManagestaffHook>}></Route>
+      <Route path='/update-staff' element={<UpdatestaffHook></UpdatestaffHook>}></Route>
       
     </Routes>
   )

@@ -9,6 +9,9 @@ const ApiEndpoint = {
     Managestaff : (id)=>`${BASE_URL}/auth/manage-staff/${id}`,
     InActivestaff : (id)=>`${BASE_URL}/auth/inactive-staff/${id}`,
     Activestaff : (id)=>`${BASE_URL}/auth/active-staff/${id}`,
+    getOnestaff : (id)=>`${BASE_URL}/auth/getonestaff/${id}`,
+    updateStaff : (id)=>`${BASE_URL}/auth/update-staff/${id}`,
+    totalStaff : (id)=>`${BASE_URL}/auth/totalstaff/${id}`
 
 }
 export default ApiEndpoint

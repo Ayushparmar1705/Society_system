@@ -12,6 +12,8 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "es-toolkit": "^1.40.0",
+    "flowbite": "^3.1.2",
+    "flowbite-react": "^0.12.10",
     "jwt-decode": "^4.0.0",
     "lucide-react": "^0.544.0",
     "ra-data-json-server": "^5.12.1",
