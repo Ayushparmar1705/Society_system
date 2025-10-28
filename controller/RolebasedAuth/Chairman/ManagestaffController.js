@@ -51,6 +51,28 @@ const Managestaffcontroller = {
             }
         })
 
+    },
+    getOneStaff: (req, res) => {
+        const id = req.params.id
+        Managestaffmodel.getOneStaff(id, (err, result) => {
+            if (err) {
+                return res.status(500).send({ code: 500, message: err });
+            } else {
+                return res.status(200).send({ code: 200, message: result })
+            }
+        })
+    },
+    updateStaff: (req, res) => {
+        const id = req.params.id;
+        const data = req.body;
+        Managestaffmodel.updateStaff(id, data, (err, _) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).send({ code: 500, message: err });
+            } else {
+                return res.status(200).send({ code: 200, message: "Staff Updated succesfully" });
+            }
+        })
     }
 }
 
